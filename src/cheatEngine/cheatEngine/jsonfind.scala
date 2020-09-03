@@ -16,6 +16,23 @@ object jsonfind {
   }
 
   /**
+   * returns true if executing on windows. required for backslash navigation of directory
+   * @return
+   */
+  def userOnWindows(): Boolean = {
+    System.getProperty("os.name").contains("windows")
+  }
+
+  /**
+   * Returns file path to json base directory
+   * @return
+   */
+  def ConstructBaseFilePath(): String = {
+    val slash: String = if(userOnWindows()) """\""" else "/"
+    val str = slash + "data" + slash + "json"
+    str
+  }
+  /**
    * turns file into an entire json collection*
    * @param file: represent file source
    *            * @return JSON collection
