@@ -10,4 +10,7 @@ class IOTests extends AnyFunSuite  {
     val dir = sysdir+fileDir
     assert(jsonfind.findFile(fileDir).nonEmpty)
   }
+  test("UserOnWindows"){
+    System.out.println(jsonfind.userOnWindows())
+  }
 }
