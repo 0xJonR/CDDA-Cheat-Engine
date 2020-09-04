@@ -1,10 +1,13 @@
 package cheatEngine
 
-import play.api.libs.json.JsValue
+import play.api.libs.json.{JsValue, Json}
+
 import scala.io.{BufferedSource, Source}
 
 object jsonfind {
   final val backslash: String = if(userOnWindows()) """\"""" else "/"
+  case class Weapon(id: String, price: Int, to_hit: Int, cut: Int, bash: Int)
+  implicit val weaponReads = Json.reads[Weapon]
   /**
    *
    * @param fileDir: name of file to open
