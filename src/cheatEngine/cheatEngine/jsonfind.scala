@@ -4,6 +4,7 @@ import play.api.libs.json.JsValue
 import scala.io.{BufferedSource, Source}
 
 object jsonfind {
+  final val backslash: String = if(userOnWindows()) """\"""" else "/"
   /**
    *
    * @param fileDir: name of file to open
@@ -28,9 +29,16 @@ object jsonfind {
    * @return
    */
   def ConstructBaseFilePath(): String = {
-    val slash: String = if(userOnWindows()) """\""" else "/"
-    val str = slash + "data" + slash + "json"
+    val str = backslash + "data" + backslash + "json"
     str
+  }
+
+  /**
+   * returns file path to item path json directory
+   * @return
+   */
+  def getItemFilePath(): String = {
+    ConstructBaseFilePath() + backslash + "items"
   }
   /**
    * turns file into an entire json collection*
