@@ -34,7 +34,7 @@ object jsonfind {
   }
 
   /**
-   * returns file path to item path json directory
+   * returns file path to item path json director
    * @return
    */
   def getItemFilePath(): String = {
@@ -48,4 +48,11 @@ object jsonfind {
   def filetoJSON(file: BufferedSource): JsValue = {
     ???
   }
+
+  /**
+   * TODO:
+   * FOr each file in melee make a collection of melee_weapoons:
+   *    iterate through each file by searching for json "id" tag and following params:
+   *      name, price, to-hit, bashing, cutting
+   */
 }
